@@ -1,10 +1,20 @@
-/**
- * 用作接收网络请求来的数据的方法
- */
-import {request} from "./request";
+import axios from './axios'
 
-export function getHomeMultidata(){
-  return request({
-    url:'/home/multidata'
+export const BANNER = 'banner'
+export const RECOMMEND = 'recommend'
+
+export function getHomeMultidata() {
+  return axios({
+    url: '/home/multidata'
+  })
+}
+
+export function getHomeData(type, page) {
+  return axios({
+    url: '/home/data',
+    params: {
+      type,
+      page
+    }
   })
 }
